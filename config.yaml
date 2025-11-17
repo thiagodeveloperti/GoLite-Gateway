@@ -1,0 +1,17 @@
+routes:
+  - path: /users
+    upstream: http://localhost:3001
+    methods: [GET, POST]
+    auth: false
+  - path: /catalog
+    upstream: http://localhost:3002
+    methods: [GET]
+    auth: true
+  - path: /health
+    upstream: self
+    methods: [GET]
+    auth: false
+
+jwt:
+  secret: "secret123"
+  issuer: "golite"
